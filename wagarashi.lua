@@ -16,6 +16,7 @@ end)
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "ESP_GUI"
 ScreenGui.Parent = CoreGui
+ScreenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on respawn
 
 local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0, 300, 0, 500)
@@ -621,6 +622,10 @@ HitboxExtenderToggle.MouseButton1Click:Connect(toggleHitboxExtender)
 
 -- Initialize dropdown
 updateDropdown()
+
+-- Make sure GUI is visible
+ScreenGui.Enabled = true
+Frame.Visible = true
 
 -- Cleanup
 player.CharacterRemoving:Connect(function()
